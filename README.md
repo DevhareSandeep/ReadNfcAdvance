@@ -40,8 +40,6 @@ To get started with this application, follow these steps:
 
 Clone the repository to your local machine using the following command:
 
-bash
-Copy code
 git clone https://github.com/DevhareSandeep/ReadNfcAdvance.git
 Open the project in Android Studio.
 
