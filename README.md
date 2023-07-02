@@ -26,7 +26,8 @@ Utilizing Kotlin's Flow API to facilitate reactive programming and handle stream
 # Data Binding: 
 Utilizing Android Data Binding to establish a connection between the UI components and the underlying data sources, reducing boilerplate code and enhancing the overall efficiency.
 
-# Location Service: Incorporating Android's Location Service to retrieve the device's location information, enabling the application to associate the NFC tag data with the device's geographical coordinates.
+# Location Service: 
+Incorporating Android's Location Service to retrieve the device's location information, enabling the application to associate the NFC tag data with the device's geographical coordinates.
 
 # Coroutine Custom Utils: 
 Implementing custom utility functions and classes to simplify common coroutine-related tasks and improve code reusability and maintainability.
