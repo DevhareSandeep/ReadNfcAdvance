@@ -11,21 +11,28 @@ This project showcases the utilization of NFC technology, data extraction from N
 # Features
 The application utilizes the following features and technologies:
 
-# Kotlin Coroutine: Leveraging Kotlin's coroutines to handle asynchronous tasks and streamline concurrency in a more readable and efficient manner.
+# Kotlin Coroutine: 
+Leveraging Kotlin's coroutines to handle asynchronous tasks and streamline concurrency in a more readable and efficient manner.
 
-# Kotlin Extensions: Utilizing Kotlin extensions to enhance the functionality and readability of the code by adding custom extension functions and properties.
+# Kotlin Extensions: 
+Utilizing Kotlin extensions to enhance the functionality and readability of the code by adding custom extension functions and properties.
 
-# Custom Extensions: Implementing custom extensions to provide additional utility functions specific to this application's requirements.
+# Custom Extensions: 
+Implementing custom extensions to provide additional utility functions specific to this application's requirements.
 
-# Kotlin Flow: Utilizing Kotlin's Flow API to facilitate reactive programming and handle streams of data in a more declarative and composable way.
+# Kotlin Flow: 
+Utilizing Kotlin's Flow API to facilitate reactive programming and handle streams of data in a more declarative and composable way.
 
-# Data Binding: Utilizing Android Data Binding to establish a connection between the UI components and the underlying data sources, reducing boilerplate code and enhancing the overall efficiency.
+# Data Binding: 
+Utilizing Android Data Binding to establish a connection between the UI components and the underlying data sources, reducing boilerplate code and enhancing the overall efficiency.
 
 # Location Service: Incorporating Android's Location Service to retrieve the device's location information, enabling the application to associate the NFC tag data with the device's geographical coordinates.
 
-# Coroutine Custom Utils: Implementing custom utility functions and classes to simplify common coroutine-related tasks and improve code reusability and maintainability.
+# Coroutine Custom Utils: 
+Implementing custom utility functions and classes to simplify common coroutine-related tasks and improve code reusability and maintainability.
 
-# Android Hardware NFC: Utilizing the Android Hardware NFC API to read NFC tag data, allowing the application to interact with NFC tags and retrieve relevant information.
+# Android Hardware NFC: 
+Utilizing the Android Hardware NFC API to read NFC tag data, allowing the application to interact with NFC tags and retrieve relevant information.
 
 # Getting Started
 To get started with this application, follow these steps:
