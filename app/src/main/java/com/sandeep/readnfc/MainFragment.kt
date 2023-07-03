@@ -9,6 +9,7 @@ import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import com.sandeep.readnfc.Constants.PAN_ID_KEY
 import com.sandeep.readnfc.Constants.TAG_KEY
@@ -18,17 +19,16 @@ import kotlinx.coroutines.launch
 
 private const val TAG = "MainFragment"
 
-class MainFragment : Fragment(), CompoundButton.OnCheckedChangeListener {
+class MainFragment : Fragment(), CompoundButton.OnCheckedChangeListener, LifecycleOwner {
     private var binder: FragmentBinder? = null
     private val viewModel: MainViewModel by lazy { ViewModelProvider(this)[MainViewModel::class.java] }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binder = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
         binder?.viewModel = viewModel
-        binder?.lifecycleOwner = this@MainFragment
+        binder?.lifecycleOwner = viewLifecycleOwner
         return binder?.root ?: super.onCreateView(inflater, container, savedInstanceState)
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val receivedPanId = arguments?.getString(PAN_ID_KEY).string()
         Coroutines.main(this@MainFragment) { scope ->
