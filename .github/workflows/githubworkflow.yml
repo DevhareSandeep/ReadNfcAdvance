@@ -12,11 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
-        uses: DevhareSandeep/ReadNfcAdvance@master
+        uses: actions/checkout@v2
       - name: Run lint
-        uses: ./gradlew lintDebug
+        run: ./gradlew lintDebug
       - name: Upload html test report
         uses: actions/upload-artifact@v2
         with:
           name: lint.html
           path: app/build/reports/lint-results-debug.html
+
