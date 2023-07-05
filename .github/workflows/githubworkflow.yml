@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
+      - name: Grant execute permissions to Gradle wrapper
+        run: chmod +x ./gradlew
       - name: Run lint
         run: ./gradlew lintDebug
       - name: Upload html test report
