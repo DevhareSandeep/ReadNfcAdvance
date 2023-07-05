@@ -5,10 +5,12 @@ plugins {
   id 'org.jetbrains.kotlin.android' version '1.8.20' apply false
   id "org.sonarqube" version "4.2.1.3168"
 }
-//sonar {
-  //properties {
-    //property "sonar.projectKey", "sandeepworkspace_sandeepsonarcloud"
-    //property "sonar.organization", "sandeepworkspace"
-    //property "sonar.host", "https://sonarcloud.io"
-  //}
-//}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "sandeepworkspace_sandeepsonarcloud"
+        property "sonar.organization", "sandeepworkspace"
+        property "sonar.host", "https://sonarcloud.io"
+        //property "sonar.host.url", "https://sonarcloud.io"
+    }
+}
