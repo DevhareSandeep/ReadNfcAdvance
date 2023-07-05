@@ -34,6 +34,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: "17"
+      - name: Grant execute permissions to Gradle wrapper
+        run: chmod +x ./gradlew
       - name: SonarCloud Scan
         run: ./gradlew app:sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         env:
