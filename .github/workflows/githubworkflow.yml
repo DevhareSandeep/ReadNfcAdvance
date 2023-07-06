@@ -53,5 +53,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: Build Sonar
         run: chmod +x ./gradlew build sonar --info
+        
 
 
