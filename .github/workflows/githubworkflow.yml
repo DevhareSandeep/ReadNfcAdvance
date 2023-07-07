@@ -43,11 +43,11 @@ jobs:
       - name: Cache Gradle packages
         uses: actions/cache@v3
         with:
-          path: chmod +x ~/.gradle/caches
+          path: ~/.gradle/caches
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: Build Sonar
-        run: chmod +x ./gradlew build sonar
+        run: ./gradlew build sonar
