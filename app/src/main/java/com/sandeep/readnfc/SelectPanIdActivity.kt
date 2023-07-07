@@ -34,7 +34,7 @@ class SelectPanIdActivity : AppCompatActivity() {
                 val intent = Intent(this, NfcTagReadActivity::class.java)
                 intent.putExtra(PAN_ID_KEY, panId)
                 startActivity(intent)
-                //launchMainFragment(panId)
+                // launchMainFragment(panId)
             }
         }
         val spinner = findViewById<Spinner>(R.id.spinner)
@@ -49,7 +49,6 @@ class SelectPanIdActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()*/
                 pos = position
-
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {

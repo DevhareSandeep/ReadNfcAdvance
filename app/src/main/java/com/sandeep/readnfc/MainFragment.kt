@@ -43,7 +43,7 @@ class MainFragment : Fragment(), CompoundButton.OnCheckedChangeListener {
                     binder?.button5?.setOnClickListener {
                         val intent = Intent(view.context, DisplayDetailsActivity::class.java)
                         intent.putExtra(TAG_KEY, tag)
-                        intent.putExtra(PAN_ID_KEY,receivedPanId)
+                        intent.putExtra(PAN_ID_KEY, receivedPanId)
                         startActivity(intent)
                     }
                 })
@@ -65,7 +65,5 @@ class MainFragment : Fragment(), CompoundButton.OnCheckedChangeListener {
             fragment.arguments = bundle
             return fragment
         }
-
     }
-
 }

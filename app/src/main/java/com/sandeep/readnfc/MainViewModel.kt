@@ -9,13 +9,13 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.lifecycle.AndroidViewModel
+import com.sandeep.readnfc.Constants.NFC_READER_DELAY
 import com.sandeep.readnfc.NFCStatus.NoOperation
 import com.sandeep.readnfc.NFCStatus.NotEnabled
 import com.sandeep.readnfc.NFCStatus.NotSupported
 import com.sandeep.readnfc.NFCStatus.Process
 import com.sandeep.readnfc.NFCStatus.Read
 import com.sandeep.readnfc.NFCStatus.Tap
-import com.sandeep.readnfc.Constants.NFC_READER_DELAY
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -41,7 +41,7 @@ class MainViewModel(private val application: Application) : AndroidViewModel(app
         flags = flags or NfcAdapter.FLAG_READER_NFC_F
         flags = flags or NfcAdapter.FLAG_READER_NFC_V
         flags = flags or NfcAdapter.FLAG_READER_NFC_BARCODE
-        //flags = flags or NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
+        // flags = flags or NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK
         return flags
     }
 
@@ -64,7 +64,7 @@ class MainViewModel(private val application: Application) : AndroidViewModel(app
 
     fun readTag(tag: Tag?) {
         Coroutines.default(this@MainViewModel) {
-            Log.d(TAG, "readTag(${tag} ${tag?.techList})")
+            Log.d(TAG, "readTag($tag ${tag?.techList})")
             postNFCStatus(Process)
             val stringBuilder: StringBuilder = StringBuilder()
             val id: ByteArray = tag?.id ?: byteArrayOf()
@@ -93,15 +93,15 @@ class MainViewModel(private val application: Application) : AndroidViewModel(app
 
                     MifareUltralight::class.java.name -> {
                         Log.d(TAG, "readTag: MifareUltralight")
-                        stringBuilder.append('\n');
-                        val mifareUlTag: MifareUltralight = MifareUltralight.get(tag);
+                        stringBuilder.append('\n')
+                        val mifareUlTag: MifareUltralight = MifareUltralight.get(tag)
                         val type = when (mifareUlTag.type) {
                             MifareUltralight.TYPE_ULTRALIGHT -> "Ultralight"
                             MifareUltralight.TYPE_ULTRALIGHT_C -> "Ultralight C"
                             else -> "Unknown"
                         }
                         Log.d(TAG, "readTag: $type")
-                        stringBuilder.append("Mifare Ultralight type: ");
+                        stringBuilder.append("Mifare Ultralight type: ")
                         stringBuilder.append(type)
                     }
                 }
@@ -163,7 +163,7 @@ class MainViewModel(private val application: Application) : AndroidViewModel(app
     }
 
     private suspend fun postToast(message: String) {
-        Log.d(TAG, "postToast(${message})")
+        Log.d(TAG, "postToast($message)")
         liveToast.emit(message)
     }
 

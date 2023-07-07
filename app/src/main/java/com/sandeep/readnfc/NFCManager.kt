@@ -11,14 +11,17 @@ private const val TAG = "NFCManager"
 object NFCManager {
 
     fun enableReaderMode(
-        context: Context, activity: Activity, callback: NfcAdapter.ReaderCallback, flags: Int, extras: Bundle
+        context: Context,
+        activity: Activity,
+        callback: NfcAdapter.ReaderCallback,
+        flags: Int,
+        extras: Bundle,
     ) {
         try {
             NfcAdapter.getDefaultAdapter(context).enableReaderMode(activity, callback, flags, extras)
             Log.d(TAG, "enableReaderMode")
         } catch (ex: UnsupportedOperationException) {
             Log.e(TAG, "UnsupportedOperationException ${ex.message}", ex)
-
         }
     }
 
@@ -28,7 +31,6 @@ object NFCManager {
             Log.d(TAG, "disableReaderMode")
         } catch (ex: UnsupportedOperationException) {
             Log.e(TAG, "UnsupportedOperationException ${ex.message}", ex)
-
         }
     }
 

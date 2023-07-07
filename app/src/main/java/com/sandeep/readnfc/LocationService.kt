@@ -8,15 +8,15 @@ import android.os.IBinder
 import android.os.Looper
 import androidx.core.app.ActivityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
 import com.sandeep.readnfc.Constants.GPS_INTENT_KEY
 import com.sandeep.readnfc.Constants.LAT_KEY
 import com.sandeep.readnfc.Constants.LOCATION_INTENT_ACTION_START
 import com.sandeep.readnfc.Constants.LOCATION_INTENT_ACTION_STOP
 import com.sandeep.readnfc.Constants.LONG_KEY
-import com.google.android.gms.location.LocationCallback
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationResult
-import com.google.android.gms.location.LocationServices
 
 class LocationService : Service() {
 
@@ -43,15 +43,16 @@ class LocationService : Service() {
     }
 
     private fun startLocationService() {
-
         val locaionRequest = LocationRequest()
         locaionRequest.setInterval(4000)
         locaionRequest.setFastestInterval(2000)
 
         if (ActivityCompat.checkSelfPermission(
-                this, Manifest.permission.ACCESS_FINE_LOCATION
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION,
             ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this, Manifest.permission.ACCESS_COARSE_LOCATION
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             return
@@ -76,5 +77,4 @@ class LocationService : Service() {
         }
         return super.onStartCommand(intent, flags, startId)
     }
-
 }

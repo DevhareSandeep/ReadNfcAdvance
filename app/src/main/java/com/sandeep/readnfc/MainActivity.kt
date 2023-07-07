@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private var spinnerlist = ArrayList<String>()
     private lateinit var mTextViewCsvResult: TextView
     private val activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
+        ActivityResultContracts.StartActivityForResult(),
     ) { result ->
         if (result.resultCode == RESULT_OK) {
             result.data?.data?.let { uri ->

@@ -16,6 +16,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.sandeep.readnfc.Constants.GPS_INTENT_KEY
 import com.sandeep.readnfc.Constants.LAT_KEY
 import com.sandeep.readnfc.Constants.LOCATION_INTENT_ACTION_START
@@ -23,9 +25,6 @@ import com.sandeep.readnfc.Constants.LOCATION_INTENT_ACTION_STOP
 import com.sandeep.readnfc.Constants.LONG_KEY
 import com.sandeep.readnfc.Constants.PAN_ID_KEY
 import com.sandeep.readnfc.Constants.TAG_KEY
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import kotlinx.coroutines.*
 
 private const val TAG = "DisplayDetailsActivity"
 private const val PERMISSION_REQUEST_ACCESS_LOCATION = 1
@@ -51,14 +50,14 @@ class DisplayDetailsActivity : AppCompatActivity() {
         tvLatitude = findViewById(R.id.tv_latitude)
 
         LocalBroadcastManager.getInstance(this).registerReceiver(
-            mMessageReceiver, IntentFilter(GPS_INTENT_KEY)
+            mMessageReceiver,
+            IntentFilter(GPS_INTENT_KEY),
         )
         permissionlauncher =
             registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permission ->
                 locationPermission = permission[android.Manifest.permission.ACCESS_FINE_LOCATION] ?: locationPermission
             }
         checkPermission()
-
     }
 
     private fun isLocationServiceRunning(): Boolean {
@@ -84,15 +83,14 @@ class DisplayDetailsActivity : AppCompatActivity() {
     }
 
     private fun checkPermission() {
-
         locationPermission = ContextCompat.checkSelfPermission(
-            this, android.Manifest.permission.ACCESS_FINE_LOCATION
+            this,
+            android.Manifest.permission.ACCESS_FINE_LOCATION,
         ) == PackageManager.PERMISSION_GRANTED
 
         val permissionRequest: MutableList<String> = ArrayList()
 
         if (!locationPermission) {
-
             permissionRequest.add(android.Manifest.permission.ACCESS_FINE_LOCATION)
         }
 
@@ -102,7 +100,9 @@ class DisplayDetailsActivity : AppCompatActivity() {
     }
 
     override fun onRequestPermissionsResult(
-        requestCode: Int, permissions: Array<out String>, grantResults: IntArray
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray,
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == PERMISSION_REQUEST_ACCESS_LOCATION) {
@@ -111,7 +111,6 @@ class DisplayDetailsActivity : AppCompatActivity() {
                 startLocationService()
             } else {
                 Toast.makeText(applicationContext, "Denied", Toast.LENGTH_SHORT).show()
-
             }
         }
     }

@@ -44,10 +44,9 @@ class NfcTagReadActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeLi
                             this@NfcTagReadActivity,
                             this@NfcTagReadActivity,
                             viewModel.getNFCFlags(),
-                            viewModel.getExtras()
+                            viewModel.getExtras(),
                         )
                     }
-
                 })
             })
             scope.launch(block = {

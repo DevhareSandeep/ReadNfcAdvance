@@ -110,11 +110,14 @@ fun parseInt(str: String?): Int {
     }
     return if (TextUtils.isDigitsOnly(str)) {
         str.trim().toInt()
-    } else 0
+    } else {
+        0
+    }
 }
 
 fun parseDouble(
-    numericString: String?, locale: Locale = Locale.ENGLISH
+    numericString: String?,
+    locale: Locale = Locale.ENGLISH,
 ): Double {
     var numericValue = numericString
     if (numericValue == null || TextUtils.isEmpty(numericValue.trim())) {
@@ -149,7 +152,8 @@ fun isDouble(doubleNumber: String): Boolean {
 }
 
 fun getEnNumber(
-    numericString: String, locale: Locale
+    numericString: String,
+    locale: Locale,
 ): Double {
     try {
         val format = NumberFormat.getInstance(locale)
