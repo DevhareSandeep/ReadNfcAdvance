@@ -52,4 +52,4 @@ jobs:
       - name: Grant execute permissions to Gradle wrapper
         run: chmod +x ./gradlew
       - name: Build Sonar
-        run: ./gradlew build sonar
+        run: ./gradlew build sonar --stacktrace
