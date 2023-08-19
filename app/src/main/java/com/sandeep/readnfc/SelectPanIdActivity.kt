@@ -42,7 +42,7 @@ class SelectPanIdActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
               /*  Toast.makeText(
                     this@SelectPanIdActivity,
                     getString(R.string.selected_item) + " " + "" + languages[position],
